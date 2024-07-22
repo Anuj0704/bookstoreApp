@@ -41,9 +41,9 @@ function Signup() {
 
   return (
     <>
-      <div className="flex h-screen items-center justify-center ">
-        <div className="w-[600px]">
-          <div className="modal-box dark:bg-blue-950">
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-[600px]  ">
+          <div className="modal-box dark:bg-slate-700">
             <form onSubmit={handleSubmit(onSubmit)} method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <Link
@@ -95,7 +95,7 @@ function Signup() {
                 <input
                   type="text"
                   placeholder="Enter your password"
-                  className="w-80 px-3 py-1 border rounded outline-none"
+                  className="w-80 px-3 py-1 border rounded-md outline-none"
                   {...register("password", { required: true })}
                 />
                 <br />
