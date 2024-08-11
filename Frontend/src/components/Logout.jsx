@@ -2,6 +2,8 @@ import React from "react";
 import { useAuth } from "../context/AuthProvider";
 import toast from "react-hot-toast";
 
+const url = "https://bookstoreapp-backend-8aa9.onrender.com";
+
 function Logout() {
   const [authUser, setAuthUser] = useAuth();
   const handleLogout = () => {
