@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 function Signup() {
   const location = useLocation();
   const navigate = useNavigate();
+  const url = "https://bookstoreapp-backend-8aa9.onrender.com";
   const from = location.state?.from.pathname || "/";
   const {
     register,
