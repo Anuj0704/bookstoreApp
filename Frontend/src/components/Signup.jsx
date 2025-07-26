@@ -4,10 +4,12 @@ import Login from "./Login";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+const url = "https://bookstoreapp-backend-8aa9.onrender.com";
 
 function Signup() {
   const location = useLocation();
   const navigate = useNavigate();
+  
   const from = location.state?.from.pathname || "/";
   const {
     register,
