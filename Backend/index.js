@@ -4,29 +4,42 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bookRoute from "./route/book.route.js";
 import userRoute from "./route/user.route.js";
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
 dotenv.config();
 
+const app = express();
 const PORT = process.env.PORT || 4000;
 const URI = process.env.MongoDBURI;
 
-// connect to mongoDB
-try {
-  mongoose.connect(URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+app.use(cors({
+  origin: [
+    "http://localhost:5173",                         
+    "https://bookstoreapp-frontend-4zgi.onrender.com"       
+  ],
+  credentials: true
+}));
+app.use(express.json());
+
+
+//connect to mongoDB 
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log("✅ Connected to MongoDB Atlas");
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
   });
-  console.log("Connected to mongoDB");
-} catch (error) {
-  console.log("Error", error);
-}
+})
+.catch((error) => {
+  console.error("❌ MongoDB connection error:", error.message);
+});
+  
+
 // Defining routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
-});
+});*/
+
