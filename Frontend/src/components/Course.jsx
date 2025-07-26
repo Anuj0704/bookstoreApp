@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 function Course() {
   const [book, setBook] = useState([]);
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4001";
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        const res = await axios.get(`${API_BASE_URL}/book`);
         console.log(res.data);
         setBook(res.data);
       } catch (error) {
