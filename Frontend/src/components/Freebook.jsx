@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 //import list from "../../public/list.json";
 import Cards from "./Cards";
 
@@ -11,7 +12,7 @@ function Freebook() {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get(`http://localhost:4001/book`);
+        const res = await axios.get(`${API_BASE_URL}/book`);
   //https://bookstoreapp-backend-8aa9.onrender.com
         //const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/books`);
         const data = res.data.filter((data) => data.category === "Free");

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { API_BASE_URL } from "../config";
 
 const url = "https://bookstoreapp-backend-8aa9.onrender.com";
 
@@ -19,7 +20,7 @@ function Login() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:4001/user/login", userInfo)
+      .post(`${API_BASE_URL}/user/login`, userInfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {
