@@ -13,7 +13,7 @@ const URI = process.env.MONGODB_URI;
 app.use(cors({
   origin: [
     "http://localhost:5173",                         
-    "https://bookstoreapp-frontend-4zgi.onrender.com"       
+    "https://bookstoreapp-backend-8aa9.onrender.com"       
   ],
   credentials: true
 }));
